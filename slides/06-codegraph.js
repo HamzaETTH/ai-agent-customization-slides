@@ -47,6 +47,7 @@ window.slides.push(`
   <div class="footer">
     <div class="src">
       <span>Source: CodeGraph - <a href="https://github.com/colbymchenry/codegraph" target="_blank" rel="noopener">github.com/colbymchenry/codegraph</a></span>
+      <span>RTK - <a href="https://github.com/rtk-ai/rtk" target="_blank" rel="noopener">github.com/rtk-ai/rtk</a></span>
     </div>
     <div class="page"></div>
   </div>
