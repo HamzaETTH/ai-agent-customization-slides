@@ -43,7 +43,7 @@ window.slides.push(`
   <div class="stage reveal">
     <div class="frame">
       <span class="badge"><span class="pulse"></span>HIERARCHY MAP</span>
-      <img src="agents.png" alt="AGENTS.md file system structure showing global guidelines applying across all repositories">
+      <img src="images/agents.png" alt="AGENTS.md file system structure showing global guidelines applying across all repositories">
     </div>
   </div>
 

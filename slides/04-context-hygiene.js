@@ -40,7 +40,7 @@ window.slides.push(`
   <div class="stage reveal">
     <div class="frame">
       <span class="badge"><span class="pulse"></span>CONTEXT HYGIENE</span>
-      <img src="noise.png" alt="Context hygiene debugging workflow visual">
+      <img src="images/noise.png" alt="Context hygiene debugging workflow visual">
     </div>
   </div>
 

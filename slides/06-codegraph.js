@@ -40,7 +40,7 @@ window.slides.push(`
   <div class="stage reveal">
     <div class="frame">
       <span class="badge"><span class="pulse"></span>CODEGRAPH</span>
-      <img src="graph.png" alt="CodeGraph code knowledge graph visualization">
+      <img src="images/graph.png" alt="CodeGraph code knowledge graph visualization">
     </div>
   </div>
 

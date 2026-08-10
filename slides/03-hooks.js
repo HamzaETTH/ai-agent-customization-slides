@@ -40,7 +40,7 @@ window.slides.push(`
   <div class="stage reveal">
     <div class="frame">
       <span class="badge"><span class="pulse"></span>AGENT HOOKS</span>
-      <img src="hooks.png" alt="Agent hooks lifecycle automation diagram">
+      <img src="images/hooks.png" alt="Agent hooks lifecycle automation diagram">
     </div>
   </div>
 

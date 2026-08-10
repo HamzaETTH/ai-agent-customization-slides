@@ -43,7 +43,7 @@ window.slides.push(`
   <div class="stage reveal">
     <div class="frame">
       <span class="badge"><span class="pulse"></span>PROGRESSIVE LOADING</span>
-      <img src="skills.png" alt="AI Agent skill library diagram showing reusable instructions loading dynamically into context">
+      <img src="images/skills.png" alt="AI Agent skill library diagram showing reusable instructions loading dynamically into context">
     </div>
   </div>
 

@@ -40,7 +40,7 @@ window.slides.push(`
   <div class="stage reveal">
     <div class="frame">
       <span class="badge"><span class="pulse"></span>CONTROLLED OUTPUT</span>
-      <img src="cli_tool.png" alt="CLI tools for deterministic AI workflow visual">
+      <img src="images/cli_tool.png" alt="CLI tools for deterministic AI workflow visual">
     </div>
   </div>
 

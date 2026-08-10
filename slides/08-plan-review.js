@@ -40,7 +40,7 @@ window.slides.push(`
   <div class="stage reveal">
     <div class="frame">
       <span class="badge"><span class="pulse"></span>PLAN REVIEW</span>
-      <img src="plan.png" alt="Planning and independent review workflow visual">
+      <img src="images/plan.png" alt="Planning and independent review workflow visual">
     </div>
   </div>
 

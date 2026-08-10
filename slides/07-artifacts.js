@@ -40,7 +40,7 @@ window.slides.push(`
   <div class="stage reveal">
     <div class="frame">
       <span class="badge"><span class="pulse"></span>PROJECT MEMORY</span>
-      <img src="gsd.png" alt="GSD artifact workflow visual">
+      <img src="images/gsd.png" alt="GSD artifact workflow visual">
     </div>
   </div>
 
