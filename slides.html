@@ -498,33 +498,57 @@
   /* Navigation Controls */
   .nav-controls {
     position: fixed;
-    bottom: 24px;
-    right: 72px;
-    display: flex;
-    gap: 12px;
+    inset: 0;
     z-index: 100;
+    pointer-events: none;
   }
   .nav-btn {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: 1px solid var(--hairline);
-    background: white;
-    color: var(--muted);
+    position: absolute;
+    top: 50%;
+    width: 64px;
+    height: 112px;
+    border: 0;
+    border-radius: 12px;
+    background: transparent;
+    color: var(--ink);
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 16px;
-    font-weight: 600;
-    transition: all 0.2s ease;
-    box-shadow: 0 4px 12px -4px rgba(0,0,0,0.05);
+    font-size: 56px;
+    font-weight: 300;
+    opacity: 0.14;
+    pointer-events: auto;
+    transform: translateY(-50%);
+    transition: opacity 0.2s ease, background 0.2s ease;
   }
-  .nav-btn:hover {
-    border-color: var(--blue);
+  #prevBtn { left: 8px; }
+  #nextBtn { right: 8px; }
+  .nav-btn:hover,
+  .nav-btn:focus-visible {
     color: var(--blue);
-    transform: translateY(-1px);
-    box-shadow: 0 6px 16px -6px rgba(59,108,245,0.3);
+    opacity: 0.55;
+    background: rgba(255,255,255,0.72);
+    outline: none;
+  }
+  .nav-btn:active { opacity: 0.8; }
+  .nav-btn[hidden] {
+    display: none;
+  }
+
+  @media (orientation: portrait) and (hover: none) and (pointer: coarse) {
+    .deck,
+    .nav-controls {
+      position: absolute;
+      top: 0;
+      right: auto;
+      bottom: auto;
+      left: 100vw;
+      width: 100vh;
+      height: 100vw;
+      transform: rotate(90deg);
+      transform-origin: top left;
+    }
   }
 
   /* entrance animations */
@@ -546,8 +570,8 @@
 
 <!-- Navigation Controls -->
 <div class="nav-controls">
-  <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">‹</button>
-  <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">›</button>
+  <button class="nav-btn" id="prevBtn" aria-label="Previous slide" onclick="changeSlide(-1)">‹</button>
+  <button class="nav-btn" id="nextBtn" aria-label="Next slide" onclick="changeSlide(1)">›</button>
 </div>
 
 <script>
@@ -568,6 +592,11 @@
   let currentSlide = 1;
   let totalSlides = window.slides.length;
 
+  function updateNavigationControls() {
+    document.getElementById("prevBtn").hidden = currentSlide <= 1;
+    document.getElementById("nextBtn").hidden = currentSlide >= totalSlides;
+  }
+
   function renderSlides() {
     const deck = document.getElementById("deck");
     deck.innerHTML = window.slides.join("\n");
@@ -585,6 +614,8 @@
         page.textContent = String(slideNumber).padStart(2, "0") + " / " + String(totalSlides).padStart(2, "0");
       }
     });
+
+    updateNavigationControls();
   }
 
   function changeSlide(direction) {
@@ -592,13 +623,13 @@
 
     let nextSlide = currentSlide + direction;
 
-    if (nextSlide < 1) nextSlide = totalSlides;
-    if (nextSlide > totalSlides) nextSlide = 1;
+    if (nextSlide < 1 || nextSlide > totalSlides) return;
 
     document.getElementById("slide-" + currentSlide).classList.remove("active");
     document.getElementById("slide-" + nextSlide).classList.add("active");
 
     currentSlide = nextSlide;
+    updateNavigationControls();
   }
 
   document.addEventListener("keydown", (e) => {
