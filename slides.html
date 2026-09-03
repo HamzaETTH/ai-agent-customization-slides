@@ -43,6 +43,7 @@
     height:100vh;
     position:relative;
     overflow:hidden;
+    touch-action:pan-y pinch-zoom;
   }
   .slide{
     width:100%;
@@ -608,6 +609,40 @@
       e.preventDefault();
       changeSlide(-1);
     }
+  });
+
+  let touchStartX = null;
+  let touchStartY = null;
+
+  const deck = document.getElementById("deck");
+
+  deck.addEventListener("touchstart", (e) => {
+    touchStartX = null;
+    touchStartY = null;
+
+    if (e.touches.length !== 1) return;
+
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+  }, { passive: true });
+
+  deck.addEventListener("touchend", (e) => {
+    if (touchStartX === null || touchStartY === null || !e.changedTouches.length) return;
+
+    const horizontalDistance = e.changedTouches[0].clientX - touchStartX;
+    const verticalDistance = e.changedTouches[0].clientY - touchStartY;
+
+    touchStartX = null;
+    touchStartY = null;
+
+    if (Math.abs(horizontalDistance) < 50 || Math.abs(horizontalDistance) <= Math.abs(verticalDistance)) return;
+
+    changeSlide(horizontalDistance < 0 ? 1 : -1);
+  }, { passive: true });
+
+  deck.addEventListener("touchcancel", () => {
+    touchStartX = null;
+    touchStartY = null;
   });
 
   renderSlides();
