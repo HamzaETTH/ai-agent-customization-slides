@@ -535,6 +535,9 @@
   .nav-btn[hidden] {
     display: none;
   }
+  .rotate-landscape-btn {
+    display: none;
+  }
 
   @media (orientation: portrait) and (hover: none) and (pointer: coarse) {
     .deck,
@@ -548,6 +551,29 @@
       height: 100vw;
       transform: rotate(90deg);
       transform-origin: top left;
+    }
+    body.landscape-flipped .deck,
+    body.landscape-flipped .nav-controls {
+      top: 100vh;
+      left: 0;
+      transform: rotate(-90deg);
+    }
+    .rotate-landscape-btn {
+      position: fixed;
+      right: 14px;
+      bottom: 14px;
+      z-index: 200;
+      display: flex;
+      width: 44px;
+      height: 44px;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(59,108,245,0.25);
+      border-radius: 50%;
+      background: rgba(255,255,255,0.78);
+      color: var(--blue);
+      font-size: 22px;
+      opacity: 0.55;
     }
   }
 
@@ -574,6 +600,8 @@
   <button class="nav-btn" id="nextBtn" aria-label="Next slide" onclick="changeSlide(1)">›</button>
 </div>
 
+<button class="rotate-landscape-btn" aria-label="Flip landscape direction" onclick="flipLandscape()">↻</button>
+
 <script>
   window.slides = [];
 </script>
@@ -595,6 +623,10 @@
   function updateNavigationControls() {
     document.getElementById("prevBtn").hidden = currentSlide <= 1;
     document.getElementById("nextBtn").hidden = currentSlide >= totalSlides;
+  }
+
+  function flipLandscape() {
+    document.body.classList.toggle("landscape-flipped");
   }
 
   function renderSlides() {
@@ -669,7 +701,11 @@
     const isRotatedPortrait = window.matchMedia("(orientation: portrait) and (hover: none) and (pointer: coarse)").matches;
     const useVerticalAxis = isRotatedPortrait
       && Math.abs(verticalDistance) > Math.abs(horizontalDistance);
-    const swipeDistance = useVerticalAxis ? verticalDistance : horizontalDistance;
+    let swipeDistance = useVerticalAxis ? verticalDistance : horizontalDistance;
+
+    if (useVerticalAxis && document.body.classList.contains("landscape-flipped")) {
+      swipeDistance *= -1;
+    }
 
     if (Math.abs(swipeDistance) < 50
       || (!isRotatedPortrait && Math.abs(horizontalDistance) <= Math.abs(verticalDistance))) return;
