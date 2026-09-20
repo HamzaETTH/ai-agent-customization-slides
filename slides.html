@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>AI Agent Customization — Knowledge Sharing</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -537,6 +538,182 @@
   }
   .rotate-landscape-btn {
     display: none;
+  }
+
+  @media
+    (orientation: landscape) and (hover: none) and (pointer: coarse) and (max-height: 500px),
+    (orientation: portrait) and (hover: none) and (pointer: coarse) and (max-width: 500px) {
+    .slide:not(.intro-slide):not(.conclusion-slide) {
+      grid-template-columns:minmax(0,0.52fr) minmax(0,1.8fr);
+      grid-template-rows:minmax(0,1fr);
+      gap:14px;
+      padding:14px 32px 28px;
+    }
+    .slide:not(.intro-slide):not(.conclusion-slide) .left,
+    .slide:not(.intro-slide):not(.conclusion-slide) .stage {
+      min-width:0;
+      min-height:0;
+    }
+    .eyebrow {
+      gap:4px;
+      margin-bottom:8px;
+      font-size:7px;
+      letter-spacing:0.08em;
+    }
+    .eyebrow .dot {
+      width:6px;
+      height:6px;
+    }
+    h1.title,
+    .slide-1 h1.title {
+      max-width:18ch;
+      font-size:clamp(16px,2.5vmax,22px);
+      line-height:1.02;
+      letter-spacing:-0.02em;
+    }
+    .title-rule {
+      width:58px;
+      height:2px;
+      margin:8px 0;
+    }
+    .points {
+      gap:4px;
+      max-width:none;
+      padding-left:8px;
+    }
+    .points::before {
+      top:2px;
+      bottom:2px;
+      width:2px;
+    }
+    .points li {
+      gap:4px;
+      padding:3px 4px;
+      border-radius:7px;
+    }
+    .points .num {
+      width:18px;
+      height:18px;
+      border-radius:5px;
+      font-size:6px;
+    }
+    .points .label {
+      font-size:clamp(8.5px,1.3vmax,10px);
+      line-height:1.1;
+    }
+    .points .sub {
+      margin-top:1px;
+      font-size:clamp(5.5px,0.85vmax,6.5px);
+      line-height:1.1;
+    }
+    .stage {
+      align-items:center;
+      justify-content:center;
+    }
+    .stage .frame {
+      width:auto;
+      height:auto;
+      max-width:100%;
+      max-height:100%;
+      padding:6px;
+      border-radius:10px;
+    }
+    .stage .frame::before {
+      border-radius:10px;
+    }
+    .stage img {
+      width:auto;
+      height:auto;
+      max-width:100%;
+      max-height:calc(100vmin - 56px);
+      object-fit:contain;
+      border-radius:6px;
+    }
+    .badge {
+      top:-8px;
+      right:8px;
+      padding:3px 6px;
+      font-size:6px;
+    }
+    .badge .pulse {
+      width:4px;
+      height:4px;
+      margin-right:4px;
+    }
+    .footer {
+      left:32px;
+      right:32px;
+      bottom:8px;
+      gap:12px;
+      font-size:5.5px;
+      line-height:1.2;
+    }
+    .footer .src {
+      max-width:75%;
+      gap:1px;
+    }
+    .intro-slide,
+    .conclusion-slide {
+      padding:14px 32px 28px;
+    }
+    .intro-slide {
+      gap:10px;
+    }
+    .intro-slide .intro-kicker,
+    .conclusion-slide .intro-kicker {
+      font-size:8px;
+      letter-spacing:0.12em;
+    }
+    .intro-slide .intro-title {
+      max-width:none;
+      font-size:clamp(28px,4.5vmax,38px);
+      line-height:0.96;
+    }
+    .topic-grid {
+      gap:6px;
+      max-width:none;
+    }
+    .topic-chip {
+      min-height:70px;
+      padding:8px;
+    }
+    .topic-chip .num {
+      width:22px;
+      height:22px;
+      border-radius:6px;
+      font-size:9px;
+    }
+    .topic-chip .name {
+      font-size:clamp(10px,1.6vmax,13px);
+    }
+    .conclusion-slide {
+      gap:10px;
+    }
+    .conclusion-slide .intro-title {
+      max-width:none;
+      font-size:clamp(28px,4.8vmax,40px);
+      line-height:0.96;
+    }
+    .takeaway-list {
+      gap:8px;
+      max-width:none;
+    }
+    .takeaway-list li {
+      min-height:70px;
+      padding:10px;
+      font-size:clamp(12px,1.8vmax,15px);
+    }
+    .questions {
+      margin-top:0;
+      font-size:11px;
+    }
+    .nav-btn {
+      width:44px;
+      height:80px;
+      font-size:42px;
+    }
+    #prevBtn { left:0; }
+    #nextBtn { right:0; }
   }
 
   @media (orientation: portrait) and (hover: none) and (pointer: coarse) {
