@@ -16,3 +16,7 @@ Open `slides.html` directly in a browser.
 The packaged zip is published on the GitHub Releases page.
 
 - Release asset: [ai-agent-customization-slides-v2026-08-10.zip](https://github.com/HamzaETTH/ai-agent-customization-slides/releases/download/v2026-08-10/ai-agent-customization-slides-v2026-08-10.zip)
+
+## Presentation
+
+[View the presentation](slides.html)
